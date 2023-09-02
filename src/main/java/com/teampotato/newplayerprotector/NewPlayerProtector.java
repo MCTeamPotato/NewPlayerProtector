@@ -1,13 +1,19 @@
 package com.teampotato.newplayerprotector;
 
+import com.teampotato.newplayerprotector.event.Events;
 import net.minecraftforge.common.ForgeConfigSpec;
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.config.ModConfig;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 @Mod(NewPlayerProtector.MOD_ID)
 public class NewPlayerProtector {
     public static final String MOD_ID = "newplayerprotector";
+
+    public static final Logger LOGGER = LogManager.getLogger(MOD_ID);
 
     public static final ForgeConfigSpec config;
     public static final ForgeConfigSpec.IntValue protectTicks;
@@ -22,5 +28,6 @@ public class NewPlayerProtector {
 
     public NewPlayerProtector() {
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, config);
+        MinecraftForge.EVENT_BUS.register(Events.class);
     }
 }

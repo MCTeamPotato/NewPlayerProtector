@@ -1,8 +1,10 @@
 package com.teampotato.newplayerprotector.api;
 
 public interface IPlayer {
-    boolean newPlayerProtector$getShouldCountTick();
-    void newPlayerProtector$setShouldCountTick(boolean shouldCountTick);
+    boolean protect_shouldCountTick();
+    void protect_setShouldCountTick(boolean shouldCountTick);
 
-    int newPlayerProtector$getTickCount();
+    int protect_getTickCount();
+    int protect_getRespawnTickCount();
+    void protect_setRespawnTickCount(int respawnTickCount);
 }
